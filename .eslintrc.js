@@ -15,5 +15,6 @@ module.exports = {
     'consistent-return': 'off',
     'prefer-const': 'off',
     camelcase: 'off',
+    'no-param-reassign': 'off',
   },
 };

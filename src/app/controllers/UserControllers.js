@@ -1,10 +1,8 @@
-import UserRepository from '../../repositories/UserRepository';
-import encryptPassword from '../../utils/encryptPassword';
-import checkPassword from '../../utils/checkPassword';
+import User from '../models/User';
 
 class UserControllers {
   async index(request, response) {
-    const users = await UserRepository.findAll();
+    const users = await User.findAll();
 
     return response.json(users);
   }
@@ -19,8 +17,9 @@ class UserControllers {
       return response.status(400).json({ error: 'Fill in all fields' });
     }
 
-    const existsEmail = await UserRepository.findByEmail(email);
-    const existsNickName = await UserRepository.findByNickName(nick_name);
+    const existsEmail = await User.findOne({ where: { email } });
+    const existsNickName = await User.findOne({ where: { nick_name } });
+    console.log({ existsEmail, existsNickName });
 
     if (existsEmail) {
       return response.status(400).json({ error: 'Email already existis!' });
@@ -30,13 +29,14 @@ class UserControllers {
       return response.status(400).json({ error: 'Nick Name already existis!' });
     }
 
-    const password_hash = await encryptPassword(password);
-
-    await UserRepository.create({
-      name, nick_name, email, password_hash,
+    const user = await User.create({
+      name,
+      nick_name,
+      email,
+      password,
     });
 
-    response.json({ message: 'Created User' });
+    response.json(user);
   }
 
   async show(request, response) {
@@ -46,19 +46,18 @@ class UserControllers {
       return response.status(400).json({ error: 'Fill in all fields' });
     }
 
-    const existsNickName = await UserRepository.findByNickName(nick_name);
-    if (!existsNickName) {
+    const user = await User.findOne({ where: { nick_name } });
+
+    console.log(user);
+    if (!user) {
       return response.status(400).json({ error: 'NickName not exists' });
     }
 
-    const encryptPasswordPassword = existsNickName.password;
-
-    const compare = await checkPassword(String(password), String(encryptPasswordPassword));
-    if (!compare) {
+    if (!(await user.checkPassword(String(password)))) {
       return response.status(400).json({ error: 'Password not math' });
     }
 
-    response.json({ ok: 'Logged' });
+    return response.json({ ok: 'Logged' });
   }
 }
 
