@@ -1,15 +1,5 @@
 import { v4 } from 'uuid';
-
-let users = [
-  {
-    id: v4(),
-    name: 'Matheus Oliveira Santos',
-    nick_name: 'Matheus0liveira',
-    email: 'matheus@mail.com',
-    passord: 12345678,
-
-  },
-];
+import users from '../mock/users';
 
 class UserRepository {
   findAll() {
@@ -29,7 +19,7 @@ class UserRepository {
   }
 
   create({
-    name, nick_name, email, password, password_hash,
+    name, nick_name, email, password_hash,
   }) {
     return new Promise((resolve) => {
       const newUser = {
