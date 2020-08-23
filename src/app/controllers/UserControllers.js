@@ -38,27 +38,6 @@ class UserControllers {
 
     response.json(user);
   }
-
-  async show(request, response) {
-    const { nick_name, password } = request.body;
-
-    if (!nick_name || !password) {
-      return response.status(400).json({ error: 'Fill in all fields' });
-    }
-
-    const user = await User.findOne({ where: { nick_name } });
-
-    console.log(user);
-    if (!user) {
-      return response.status(400).json({ error: 'NickName not exists' });
-    }
-
-    if (!(await user.checkPassword(String(password)))) {
-      return response.status(400).json({ error: 'Password not math' });
-    }
-
-    return response.json({ ok: 'Logged' });
-  }
 }
 
 export default new UserControllers();
