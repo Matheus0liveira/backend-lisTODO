@@ -24,6 +24,8 @@ module.exports = {
       password_hash: {
         type: Sequelize.STRING,
         allowNull: false,
+        min: 4,
+
       },
       created_at: {
         type: Sequelize.DATE,

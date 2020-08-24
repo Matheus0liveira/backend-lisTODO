@@ -29,6 +29,10 @@ class UserControllers {
       return response.status(400).json({ error: 'Nick Name already existis!' });
     }
 
+    if (password.length <= 4) {
+      return response.status(400).json({ error: 'Minimun 4 digit password requirement' });
+    }
+
     const user = await User.create({
       name,
       nick_name,

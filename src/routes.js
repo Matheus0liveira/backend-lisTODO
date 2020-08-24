@@ -9,6 +9,6 @@ const router = Router();
 router.get('/users', UserControllers.index);
 router.post('/users/logon', UserControllers.store);
 router.post('/users/login', SessionController.store);
-
-router.post('/users/:user_id/tasks', authMiddleware, TasksController.store);
+router.use(authMiddleware);
+router.post('/users/:user_id/tasks', TasksController.store);
 export default router;
