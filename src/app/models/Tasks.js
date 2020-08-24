@@ -6,7 +6,7 @@ class Tasks extends Model {
       {
         title: Sequelize.STRING,
         description: Sequelize.STRING,
-        priorty: Sequelize.STRING,
+        priority: Sequelize.STRING,
         user_id: Sequelize.INTEGER,
 
       },
