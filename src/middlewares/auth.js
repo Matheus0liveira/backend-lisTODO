@@ -3,6 +3,7 @@ import configToken from '../config/auth';
 
 async function authMiddleware(request, response, next) {
   const authHeader = request.headers.authorization;
+  const { user_id } = request.params;
 
   if (!authHeader) {
     return response.status(401).json({ error: 'Token not provider' });
@@ -14,6 +15,10 @@ async function authMiddleware(request, response, next) {
     const decodedToken = jwt.verify(token, configToken.secret);
     const userId = decodedToken.id;
     request.userId = String(userId);
+    console.log({ userId, user_id });
+    if (user_id !== String(userId)) {
+      return response.status(401).json({ error: 'User not authentication' });
+    }
     next();
   } catch (e) {
     return response.status(401).json({ error: 'Unauthorized' });

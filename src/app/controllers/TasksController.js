@@ -2,6 +2,17 @@ import User from '../models/User';
 import Tasks from '../models/Tasks';
 
 class TasksController {
+  async index(request, response) {
+    const { userId } = request;
+    const { user_id } = request.params;
+
+    console.log({ userId, user_id });
+
+    const tasks = await Tasks.findAll({ where: { user_id: userId } });
+
+    return response.status(200).json(tasks);
+  }
+
   async store(request, response) {
     const { user_id } = request.params;
     const {
@@ -9,9 +20,6 @@ class TasksController {
     } = request.body;
     const { userId } = request;
     console.log({ user_id, userId });
-    if (user_id !== userId) {
-      return response.status(401).json({ error: 'User not authentication' });
-    }
 
     const user = await User.findByPk(user_id);
 
@@ -22,7 +30,6 @@ class TasksController {
     const task = await Tasks.create({
       title, description, priority, user_id,
     });
-    // console.log(userId);
 
     response.json(task);
   }
