@@ -16,7 +16,7 @@ class SesisonController {
       return response.status(401).json({ error: 'NickName not exists' });
     }
 
-    if (!(await user.checkPassword(String(password)))) {
+    if (!(await user.verifyPassword(String(password)))) {
       return response.status(401).json({ error: 'Password not math' });
     }
 

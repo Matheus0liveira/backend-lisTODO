@@ -17,13 +17,6 @@ class Tasks extends Model {
 
     return this;
   }
-
-  static associate(models) {
-    this.belongsTo(models.Users, {
-      foreignKey: 'user_id',
-      as: 'users',
-    });
-  }
 }
 
 export default Tasks;
