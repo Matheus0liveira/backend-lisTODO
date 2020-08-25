@@ -3,6 +3,7 @@ import User from '../models/User';
 class UserControllers {
   async store(request, response) {
     const {
+
       name, nick_name, email, password,
     } = request.body;
 
