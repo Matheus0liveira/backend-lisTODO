@@ -6,7 +6,6 @@ import authMiddleware from './middlewares/auth';
 
 const router = Router();
 
-router.get('/users', UserControllers.index);
 router.post('/users/logon', UserControllers.store);
 router.post('/users/login', SessionController.store);
 router.get('/users/:user_id/tasks', authMiddleware, TasksController.index);
