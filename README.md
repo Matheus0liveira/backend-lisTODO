@@ -141,11 +141,6 @@ Middleware
 | ---------- | ---------------------------------------------------------------------------------------------------------------------- |
 | auth       | Authenticates users, returning whether they have permission or not, implemented in the routes to create and list tasks |
 
-<ol>
-  <li>auth &#8594 Authenticates users, returning whether they have permission or not, implemented in the routes to create and list tasks</li>
-
-</ol>
-
 <br>
 <br>
 
