@@ -18,8 +18,6 @@ class TasksController {
     const {
       title, description, priority,
     } = request.body;
-    const { userId } = request;
-    console.log({ user_id, userId });
 
     const user = await User.findByPk(user_id);
 

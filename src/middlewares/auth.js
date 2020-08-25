@@ -13,12 +13,15 @@ async function authMiddleware(request, response, next) {
 
   try {
     const decodedToken = jwt.verify(token, configToken.secret);
+
     const userId = decodedToken.id;
+
     request.userId = String(userId);
-    console.log({ userId, user_id });
+
     if (user_id !== String(userId)) {
       return response.status(401).json({ error: 'User not authentication' });
     }
+
     next();
   } catch (e) {
     return response.status(401).json({ error: 'Unauthorized' });

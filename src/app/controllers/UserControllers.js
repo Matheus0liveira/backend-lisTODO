@@ -18,8 +18,8 @@ class UserControllers {
     }
 
     const existsEmail = await User.findOne({ where: { email } });
+
     const existsNickName = await User.findOne({ where: { nick_name } });
-    console.log({ existsEmail, existsNickName });
 
     if (existsEmail) {
       return response.status(400).json({ error: 'Email already existis!' });
@@ -29,18 +29,23 @@ class UserControllers {
       return response.status(400).json({ error: 'Nick Name already existis!' });
     }
 
-    if (password.length <= 4) {
-      return response.status(400).json({ error: 'Minimun 4 digit password requirement' });
+    if (password.length <= 6) {
+      return response.status(400).json({ error: 'Minimun 6 digit password requirement' });
     }
 
-    const user = await User.create({
+    await User.create({
       name,
       nick_name,
       email,
       password,
     });
 
-    response.json(user);
+    response.json({
+      name,
+      nick_name,
+      email,
+      password,
+    });
   }
 }
 

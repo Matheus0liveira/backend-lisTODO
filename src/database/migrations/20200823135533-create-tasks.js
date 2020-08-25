@@ -1,11 +1,15 @@
 module.exports = {
   up: async (queryInterface, Sequelize) => {
+    await queryInterface.sequelize.query('CREATE EXTENSION IF NOT EXISTS "uuid-ossp";');
+
     await queryInterface.createTable('tasks', {
       id: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.UUID,
+        defaultValue: Sequelize.literal('uuid_generate_v4()'),
+        autoIcrement: true,
         allowNull: false,
-        autoIncrement: true,
         primaryKey: true,
+
       },
       title: {
         type: Sequelize.STRING,
@@ -20,7 +24,7 @@ module.exports = {
         defaultValue: false,
       },
       user_id: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.UUID,
         allowNull: false,
         references: {
           model: 'users',
@@ -42,5 +46,6 @@ module.exports = {
 
   down: async (queryInterface) => {
     await queryInterface.dropTable('tasks');
+    await queryInterface.sequelize.query('DROP EXTENSION "uuid-ossp";');
   },
 };
