@@ -1,6 +1,6 @@
 <div align='center'>
 
-  <img src='./github/Logo.svg' width='250'/>
+  <img src='./github/Logo.svg' width='300'/>
 
 ---
 
@@ -33,7 +33,7 @@ This project was built 100% on the express and its good practices, follows the l
 
 > Last update -> 08/24/2020
 
-| Dependency    | value                                |
+| Dependency    | Why use                              |
 | ------------- | ------------------------------------ |
 | express       | Create routes(Main technology)       |
 | Bcrypt        | encrypt passwords                    |
@@ -44,7 +44,7 @@ This project was built 100% on the express and its good practices, follows the l
 
 <br>
 
-| DevDependencies | value                                                 |
+| DevDependencies | Why use                                               |
 | --------------- | ----------------------------------------------------- |
 | eslint          | Standardize project                                   |
 | nodemon         | Auto reload when saved                                |
@@ -97,11 +97,11 @@ $ npm sequelize db:migrate
 for delete the last migration generate
 
 ```shell
-$ npm sequelize db:migrate:undo
+$ yarn sequelize db:migrate:undo
 
-# all
+# delete all migrations
 
-$ npm sequelize db:migrate:undo:all
+$ yarn sequelize db:migrate:undo:all
 ```
 
 #### 🔥 Starter server
@@ -136,7 +136,7 @@ Routes
 Middleware
 
 <ol>
-  <li>auth -> Authenticates users, returning whether they have permission or not, implemented in the routes to create and list tasks</li>
+  <li>auth &#8594 Authenticates users, returning whether they have permission or not, implemented in the routes to create and list tasks</li>
 
 </ol>
 
