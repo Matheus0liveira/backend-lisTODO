@@ -123,17 +123,23 @@ $ npm run start
 #### lisTODO(back-end) has 4 routes currently and 1 middleware the authentication:
 
 <br/>
+
 Routes
-<ol>
-  <li>Create User &#8594 Create user</li>
-  <li>Login &#8594 login, but for that you need to register, returning a token</li>
-  <li>Create Tasks &#8594 Create tasks, need to be logged in, to create you need to pass the valid id and token</li>
-  <li>List Tasks &#8594 List tasks, need to be logged in, to list tasks you need to pass the valid id and token</li>
-</ol>
+
+| Routes       |                                                                                         |
+| ------------ | --------------------------------------------------------------------------------------- |
+| Create User  | Create use                                                                              |
+| Login        | login, but for that you need to register, returning a token                             |
+| Create Tasks | Create tasks, need to be logged in, to create you need to pass the valid id and token   |
+| List Tasks   | List tasks, need to be logged in, to list tasks you need to pass the valid id and token |
 
 <br/>
 
 Middleware
+
+| Middleware |                                                                                                                        |
+| ---------- | ---------------------------------------------------------------------------------------------------------------------- |
+| auth       | Authenticates users, returning whether they have permission or not, implemented in the routes to create and list tasks |
 
 <ol>
   <li>auth &#8594 Authenticates users, returning whether they have permission or not, implemented in the routes to create and list tasks</li>
