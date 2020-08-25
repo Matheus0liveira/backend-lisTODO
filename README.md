@@ -64,9 +64,6 @@ $ git clone https://github.com/Matheus0liveira/backend-lisTODO.git
 
 ```
 
-<br>
-<br>
-
 #### 🔥 Install dependencies
 
 ```shell
@@ -102,21 +99,24 @@ for delete the last migration generate
 ```shell
 $ npm sequelize db:migrate:undo
 
-#all
+# all
 
 $ npm sequelize db:migrate:undo:all
 ```
 
-#### Starter server
+#### 🔥 Starter server
 
 ```shell
 $ yarn start
 
-#or
+# or
 
 $ npm run start
 
 ```
+
+<br>
+<br>
 
 ### <p id='functionalities'>🖥 Functionalities</p>
 
@@ -125,10 +125,10 @@ $ npm run start
 <br/>
 Routes
 <ol>
-  <li>Create User -> Create user</li>
-  <li>Login -> login, but for that you need to register, returning a token</li>
-  <li>Create Tasks -> Create tasks, need to be logged in, to create you need to pass the valid id and token</li>
-  <li>List Tasks -> List tasks, need to be logged in, to list tasks you need to pass the valid id and token</li>
+  <li>Create User &#8594 Create user</li>
+  <li>Login &#8594 login, but for that you need to register, returning a token</li>
+  <li>Create Tasks &#8594 Create tasks, need to be logged in, to create you need to pass the valid id and token</li>
+  <li>List Tasks &#8594 List tasks, need to be logged in, to list tasks you need to pass the valid id and token</li>
 </ol>
 
 <br/>
@@ -143,6 +143,6 @@ Middleware
 <br>
 <br>
 
-### <p id='author'>✋ Author</p>
+### <p id='author'>👨 Author</p>
 
 #### This project was created by <a href='https://www.github.com/Matheus0liveira'>Matheus Oliveira <a/>
