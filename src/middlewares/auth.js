@@ -12,9 +12,9 @@ async function authMiddleware(request, response, next) {
   const token = authHeader.split(' ')[1];
 
   try {
-    const decodedToken = jwt.verify(token, configToken.secret);
+    const { id } = jwt.verify(token, configToken.secret);
 
-    const userId = decodedToken.id;
+    const userId = id;
 
     request.userId = String(userId);
 

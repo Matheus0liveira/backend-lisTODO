@@ -31,5 +31,22 @@ class TasksController {
 
     response.json(task);
   }
+
+  async delete(request, response) {
+    const { user_id, task_id } = request.params;
+
+    if (!user_id || !task_id) {
+      return response.status(401).json({ error: 'User not permission' });
+    }
+    const existsTask = await Tasks.findByPk(task_id);
+
+    if (!existsTask) {
+      return response.status(401).json({ error: 'Task not exists' });
+    }
+
+    await Tasks.destroy({ where: { id: task_id } });
+
+    response.sendStatus(200);
+  }
 }
 export default new TasksController();
