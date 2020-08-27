@@ -38,10 +38,25 @@ class TasksController {
     if (!user_id || !task_id) {
       return response.status(401).json({ error: 'User not permission' });
     }
+
+    const existsUser = await User.findByPk(user_id);
+
     const existsTask = await Tasks.findByPk(task_id);
+
+    if (!existsUser) {
+      return response.status(401).json({ error: 'User not exists' });
+    }
 
     if (!existsTask) {
       return response.status(401).json({ error: 'Task not exists' });
+    }
+
+    const verifyUserId = existsTask.user_id;
+
+    const existsUserIdbyTask = Tasks.findOne({ where: { user_id: verifyUserId } });
+
+    if (!existsUserIdbyTask) {
+      return response.status(401).json({ error: 'User not authorization' });
     }
 
     await Tasks.destroy({ where: { id: task_id } });
