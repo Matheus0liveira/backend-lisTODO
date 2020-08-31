@@ -1,6 +1,21 @@
 import Tasks from '../models/Tasks';
+import User from '../models/User';
 
 class CheckedController {
+  async index(request, response) {
+    const { user_id } = request.params;
+    const id = user_id;
+
+    const user = await User.findByPk(id);
+    if (!user) {
+      return response.status(401).json({ error: 'User not exists' });
+    }
+
+    const checkTask = await Tasks.findAll({ where: { check: true, user_id } });
+
+    response.status(200).json(checkTask);
+  }
+
   async update(request, response) {
     const { task_id } = request.params;
 
