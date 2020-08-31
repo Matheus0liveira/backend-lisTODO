@@ -1,6 +1,14 @@
 import User from '../models/User';
 
 class UserControllers {
+  async index(request, response) {
+    const users = await User.findAll();
+
+    console.log(users);
+
+    response.status(200).json(users);
+  }
+
   async store(request, response) {
     const {
 

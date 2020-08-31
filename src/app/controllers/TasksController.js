@@ -29,7 +29,7 @@ class TasksController {
       title, description, priority, user_id,
     });
 
-    response.json(task);
+    response.status(200).json(task);
   }
 
   async delete(request, response) {
@@ -40,7 +40,6 @@ class TasksController {
     }
 
     const existsUser = await User.findByPk(user_id);
-
     const existsTask = await Tasks.findByPk(task_id);
 
     if (!existsUser) {

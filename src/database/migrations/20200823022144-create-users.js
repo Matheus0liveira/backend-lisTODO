@@ -43,7 +43,6 @@ module.exports = {
 
   down: async (queryInterface) => {
     await queryInterface.dropTable('users');
-
     await queryInterface.sequelize.query('DROP EXTENSION "uuid-ossp";');
   },
 };

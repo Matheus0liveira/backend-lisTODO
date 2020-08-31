@@ -1,13 +1,14 @@
-import Sequelize, { Model } from 'sequelize';
+import { Model, DataTypes } from 'sequelize';
 
 class Tasks extends Model {
   static init(sequelize) {
     super.init(
       {
-        title: Sequelize.STRING,
-        description: Sequelize.STRING,
-        priority: Sequelize.STRING,
-        user_id: Sequelize.INTEGER,
+        title: DataTypes.STRING,
+        description: DataTypes.STRING,
+        priority: DataTypes.STRING,
+        check: DataTypes.BOOLEAN,
+        user_id: DataTypes.INTEGER,
 
       },
       {

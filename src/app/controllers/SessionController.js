@@ -23,7 +23,7 @@ class SesisonController {
     const { id, name, email } = user;
 
     return response.json({
-      User: {
+      user: {
         id,
         name,
         nick_name,
