@@ -31,7 +31,7 @@ This project aims to help you organize your activities in your routine, remember
 
 This project was built 100% on the express and its good practices, follows the list of dependencies used in this project.
 
-> Last update -> 08/24/2020
+> Last update -> 24/08/2020
 
 | Dependency    | Why use                              |
 | ------------- | ------------------------------------ |
