@@ -10,17 +10,20 @@ const router = Router();
 // Session route
 router.post('/users/signin', SessionController.store);
 
+
 // User route
 router.post('/users/signup', UserControllers.store);
 router.get('/users', UserControllers.index);
+
 
 // Tasks routes
 router.get('/users/:user_id/tasks', authMiddleware, TasksController.index);
 router.post('/users/:user_id/tasks', authMiddleware, TasksController.store);
 router.delete('/users/:user_id/tasks/:task_id', authMiddleware, TasksController.delete);
 
+
 // Checked route
-router.get('/users/:user_id/tasks/:task_id', authMiddleware, CheckedController.index);
+router.get('/users/:user_id/checktasks', authMiddleware, CheckedController.index);
 router.put('/users/:user_id/tasks/:task_id', authMiddleware, CheckedController.update);
 
 export default router;
