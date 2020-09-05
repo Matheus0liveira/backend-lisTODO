@@ -1,11 +1,11 @@
 Arguments: 
-  /home/matheus/.nvm/versions/node/v12.18.3/bin/node /usr/share/yarn/bin/yarn.js add bodyParser
+  /home/matheus-oliveira/.nvm/versions/node/v12.18.3/bin/node /usr/share/yarn/bin/yarn.js add yup
 
 PATH: 
-  /home/matheus/.zinit/polaris/sbin:/home/matheus/.zinit/polaris/bin:/home/matheus/.nvm/versions/node/v12.18.3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/home/matheus/.yarn/bin:/home/matheus/Library/Android/sdk/emulator:/home/matheus/Library/Android/sdk/tools:/home/matheus/Library/Android/sdk/tools/bin:/home/matheus/Library/Android/sdk/platform-tools:/home/matheus/.yarn/bin:/home/matheus/Library/Android/sdk/emulator:/home/matheus/Library/Android/sdk/tools:/home/matheus/Library/Android/sdk/tools/bin:/home/matheus/Library/Android/sdk/platform-tools
+  /home/matheus-oliveira/.zinit/polaris/sbin:/home/matheus-oliveira/.zinit/polaris/bin:/home/matheus-oliveira/.nvm/versions/node/v12.18.3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:yarn global bin:yarn global bin
 
 Yarn version: 
-  1.22.4
+  1.22.5
 
 Node version: 
   12.18.3
@@ -14,17 +14,7 @@ Platform:
   linux x64
 
 Trace: 
-  Error: https://registry.yarnpkg.com/bodyParser: Not found
-      at Request.params.callback [as _callback] (/usr/share/yarn/lib/cli.js:66987:18)
-      at Request.self.callback (/usr/share/yarn/lib/cli.js:140748:22)
-      at Request.emit (events.js:315:20)
-      at Request.<anonymous> (/usr/share/yarn/lib/cli.js:141720:10)
-      at Request.emit (events.js:315:20)
-      at IncomingMessage.<anonymous> (/usr/share/yarn/lib/cli.js:141642:12)
-      at Object.onceWrapper (events.js:421:28)
-      at IncomingMessage.emit (events.js:327:22)
-      at endReadableNT (_stream_readable.js:1220:12)
-      at processTicksAndRejections (internal/process/task_queues.js:84:21)
+  Error: ENOTEMPTY: directory not empty, rmdir '/media/matheus-oliveira/Data/Projects/lisTODO/backend/node_modules/.bin'
 
 npm manifest: 
   {
@@ -37,12 +27,14 @@ npm manifest:
     },
     "dependencies": {
       "bcryptjs": "^2.4.3",
+      "cors": "^2.8.5",
       "dotenv": "^8.2.0",
       "express": "^4.17.1",
       "jsonwebtoken": "^8.5.1",
       "pg": "^8.3.2",
       "pg-hstore": "^2.3.3",
-      "sequelize": "^6.3.4"
+      "sequelize": "^6.3.4",
+      "yup": "^0.29.3"
     },
     "devDependencies": {
       "eslint": "^7.7.0",
@@ -82,6 +74,13 @@ Lockfile:
       "@babel/helper-validator-identifier" "^7.10.4"
       chalk "^2.0.0"
       js-tokens "^4.0.0"
+  
+  "@babel/runtime@^7.10.5":
+    version "7.11.2"
+    resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.11.2.tgz#f549c13c754cc40b87644b9fa9f09a6a95fe0736"
+    integrity sha512-TeWkU52so0mPtDcaCTxNBI/IHiz0pZgr8VEFqXFtZWpYD08ZB6FaSwVAS8MKRQAP3bYKiVjwysOJgMFY28o6Tw==
+    dependencies:
+      regenerator-runtime "^0.13.4"
   
   "@sindresorhus/is@^0.14.0":
     version "0.14.0"
@@ -503,6 +502,14 @@ Lockfile:
     version "0.4.0"
     resolved "https://registry.yarnpkg.com/cookie/-/cookie-0.4.0.tgz#beb437e7022b3b6d49019d088665303ebe9c14ba"
     integrity sha512-+Hp8fLp57wnUSt0tY0tHEXh4voZRDnoIrZPqlo3DPiI4y9lwg/jqx+1Om94/W6ZaPDOUbnjOt/99w66zk+l1Xg==
+  
+  cors@^2.8.5:
+    version "2.8.5"
+    resolved "https://registry.yarnpkg.com/cors/-/cors-2.8.5.tgz#eac11da51592dd86b9f06f6e7ac293b3df875d29"
+    integrity sha512-KIHbLJqu73RGr/hnbrO9uBeixNGuvSQjul/jdFvS/KFSIH1hWVd1ng7zOHx+YrEfInLG7q4n6GHQ9cDtxv/P6g==
+    dependencies:
+      object-assign "^4"
+      vary "^1"
   
   cross-spawn@^7.0.2:
     version "7.0.3"
@@ -1038,6 +1045,11 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/flatted/-/flatted-2.0.2.tgz#4575b21e2bcee7434aa9be662f4b7b5f9c2b5138"
     integrity sha512-r5wGx7YeOwNWNlCA0wQ86zKyDLMQr+/RB8xy74M4hTphfmjlijTSSXGuH8rnvKZnfT9i+75zmd8jcKdMR4O6jA==
   
+  fn-name@~3.0.0:
+    version "3.0.0"
+    resolved "https://registry.yarnpkg.com/fn-name/-/fn-name-3.0.0.tgz#0596707f635929634d791f452309ab41558e3c5c"
+    integrity sha512-eNMNr5exLoavuAMhIUVsOKF79SWd/zG104ef6sxBTSw+cZc6BXdQXDvYcGvp0VbxVVSp1XDUNoz7mg1xMtSznA==
+  
   forwarded@~0.1.2:
     version "0.1.2"
     resolved "https://registry.yarnpkg.com/forwarded/-/forwarded-0.1.2.tgz#98c23dab1175657b8c0573e8ceccd91b0ff18c84"
@@ -1540,6 +1552,11 @@ Lockfile:
       p-locate "^3.0.0"
       path-exists "^3.0.0"
   
+  lodash-es@^4.17.11:
+    version "4.17.15"
+    resolved "https://registry.yarnpkg.com/lodash-es/-/lodash-es-4.17.15.tgz#21bd96839354412f23d7a10340e5eac6ee455d78"
+    integrity sha512-rlrc3yU3+JNOpZ9zj5pQtxnx2THmvRykwL4Xlxoa8I9lHBlVbbyPhgyPMioxVZ4NqyxaVVtaJnzsyOidQIhyyQ==
+  
   lodash.includes@^4.3.0:
     version "4.3.0"
     resolved "https://registry.yarnpkg.com/lodash.includes/-/lodash.includes-4.3.0.tgz#60bb98a87cb923c68ca1e51325483314849f553f"
@@ -1798,7 +1815,7 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/normalize-url/-/normalize-url-4.5.0.tgz#453354087e6ca96957bd8f5baf753f5982142129"
     integrity sha512-2s47yzUxdexf1OhyRi4Em83iQk0aPvwTddtFz4hnSSw9dCEsLEGf6SwIO8ss/19S9iBb5sJaOuTvTGDeZI00BQ==
   
-  object-assign@^4.0.1:
+  object-assign@^4, object-assign@^4.0.1:
     version "4.1.1"
     resolved "https://registry.yarnpkg.com/object-assign/-/object-assign-4.1.1.tgz#2109adc7965887cfc05cbbd442cac8bfbb360863"
     integrity sha1-IQmtx5ZYh8/AXLvUQsrIv7s2CGM=
@@ -2097,6 +2114,11 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/progress/-/progress-2.0.3.tgz#7e8cf8d8f5b8f239c1bc68beb4eb78567d572ef8"
     integrity sha512-7PiHtLll5LdnKIMw100I+8xJXR5gW2QwWYkT6iJva0bXitZKa/XMrSbdmg3r2Xnaidz9Qumd0VPaMrZlF9V9sA==
   
+  property-expr@^2.0.2:
+    version "2.0.4"
+    resolved "https://registry.yarnpkg.com/property-expr/-/property-expr-2.0.4.tgz#37b925478e58965031bb612ec5b3260f8241e910"
+    integrity sha512-sFPkHQjVKheDNnPvotjQmm3KD3uk1fWKUN7CrpdbwmUx3CrG3QiM8QpTSimvig5vTXmTvjz7+TDvXOI9+4rkcg==
+  
   proto-list@~1.2.1:
     version "1.2.4"
     resolved "https://registry.yarnpkg.com/proto-list/-/proto-list-1.2.4.tgz#212d5bfe1318306a420f6402b8e26ff39647a849"
@@ -2193,6 +2215,11 @@ Lockfile:
     integrity sha512-0xe001vZBnJEK+uKcj8qOhyAKPzIT+gStxWr3LCB0DwcXR5NZJ3IaC+yGnHCYzB/S7ov3m3EEbZI2zeNvX+hGQ==
     dependencies:
       picomatch "^2.2.1"
+  
+  regenerator-runtime@^0.13.4:
+    version "0.13.7"
+    resolved "https://registry.yarnpkg.com/regenerator-runtime/-/regenerator-runtime-0.13.7.tgz#cac2dacc8a1ea675feaabaeb8ae833898ae46f55"
+    integrity sha512-a54FxoJDIr27pgf7IgeQGxmqUNYrcV338lf/6gH456HZ/PhX+5BcwHXG9ajESmwe6WRO0tAzRUrRmNONWgkrew==
   
   regexpp@^3.1.0:
     version "3.1.0"
@@ -2537,6 +2564,11 @@ Lockfile:
     dependencies:
       has-flag "^4.0.0"
   
+  synchronous-promise@^2.0.13:
+    version "2.0.13"
+    resolved "https://registry.yarnpkg.com/synchronous-promise/-/synchronous-promise-2.0.13.tgz#9d8c165ddee69c5a6542862b405bc50095926702"
+    integrity sha512-R9N6uDkVsghHePKh1TEqbnLddO2IY25OcsksyFp/qBe7XYd0PVbKEWxhcdMhpLzE1I6skj5l4aEZ3CRxcbArlA==
+  
   table@^5.2.3:
     version "5.4.6"
     resolved "https://registry.yarnpkg.com/table/-/table-5.4.6.tgz#1292d19500ce3f86053b05f0e8e7e4a3bb21079e"
@@ -2605,6 +2637,11 @@ Lockfile:
     version "1.0.1"
     resolved "https://registry.yarnpkg.com/toposort-class/-/toposort-class-1.0.1.tgz#7ffd1f78c8be28c3ba45cd4e1a3f5ee193bd9988"
     integrity sha1-f/0feMi+KMO6Rc1OGj9e4ZO9mYg=
+  
+  toposort@^2.0.2:
+    version "2.0.2"
+    resolved "https://registry.yarnpkg.com/toposort/-/toposort-2.0.2.tgz#ae21768175d1559d48bef35420b2f4962f09c330"
+    integrity sha1-riF2gXXRVZ1IvvNUILL0li8JwzA=
   
   touch@^3.1.0:
     version "3.1.0"
@@ -2762,7 +2799,7 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/validator/-/validator-10.11.0.tgz#003108ea6e9a9874d31ccc9e5006856ccd76b228"
     integrity sha512-X/p3UZerAIsbBfN/IwahhYaBbY68EN/UQBWHtsbXGT5bfrH/p4NQzUCG1kF/rtKaNpnJ7jAu6NGTdSNtyNIXMw==
   
-  vary@~1.1.2:
+  vary@^1, vary@~1.1.2:
     version "1.1.2"
     resolved "https://registry.yarnpkg.com/vary/-/vary-1.1.2.tgz#2299f02c6ded30d4a5961b0b9f74524a18f634fc"
     integrity sha1-IpnwLG3tMNSllhsLn3RSShj2NPw=
@@ -2872,3 +2909,16 @@ Lockfile:
       which-module "^2.0.0"
       y18n "^4.0.0"
       yargs-parser "^13.1.2"
+  
+  yup@^0.29.3:
+    version "0.29.3"
+    resolved "https://registry.yarnpkg.com/yup/-/yup-0.29.3.tgz#69a30fd3f1c19f5d9e31b1cf1c2b851ce8045fea"
+    integrity sha512-RNUGiZ/sQ37CkhzKFoedkeMfJM0vNQyaz+wRZJzxdKE7VfDeVKH8bb4rr7XhRLbHJz5hSjoDNwMEIaKhuMZ8gQ==
+    dependencies:
+      "@babel/runtime" "^7.10.5"
+      fn-name "~3.0.0"
+      lodash "^4.17.15"
+      lodash-es "^4.17.11"
+      property-expr "^2.0.2"
+      synchronous-promise "^2.0.13"
+      toposort "^2.0.2"

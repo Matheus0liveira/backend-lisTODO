@@ -1,10 +1,16 @@
 import Tasks from '../models/Tasks';
 import User from '../models/User';
+import * as Yup from 'yup';
 
 class CheckedController {
   async index(request, response) {
     const { user_id } = request.params;
     const id = user_id;
+
+
+    if (!user_id) {
+      return response.status(401).json({ error: 'user_id is required' });
+    }
 
     const user = await User.findByPk(id);
     if (!user) {
@@ -21,11 +27,15 @@ class CheckedController {
 
     const { task_id } = request.params;
 
+    const schema = Yup.object().shape({
 
-    if (!check) {
-      return response.status(400).json({ error: 'Body is required' });
+      check: Yup.boolean().required()
+    });
+
+
+    if (!(await schema.isValid(request.body))) {
+      return response.status(401).json({ error: 'Validation is fails' });
     }
-
 
     if (!task_id) {
       return response.status(400).json({ error: 'Id is required' });
@@ -40,7 +50,7 @@ class CheckedController {
     }
 
 
-    const updatedTask = await existsTask.update({ check: true });
+    const updatedTask = await existsTask.update({ check: check });
 
     response.status(200).json(updatedTask);
   }

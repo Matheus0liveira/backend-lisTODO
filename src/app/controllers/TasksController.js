@@ -1,3 +1,4 @@
+import * as Yup from 'yup';
 import User from '../models/User';
 import Tasks from '../models/Tasks';
 
@@ -15,6 +16,17 @@ class TasksController {
     const {
       title, description, priority,
     } = request.body;
+
+    const schema = Yup.object().shape({
+
+      title: Yup.string().required(),
+      description: Yup.string().required(),
+      priority: Yup.string(),
+    });
+
+    if (!(await schema.isValid(request.body))) {
+      return response.status(401).json({ error: 'Validations is Fails' });
+    }
 
     const user = await User.findByPk(user_id);
 

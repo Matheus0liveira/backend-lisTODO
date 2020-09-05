@@ -1,3 +1,4 @@
+import * as Yup from 'yup';
 import User from '../models/User';
 
 class UserControllers {
@@ -10,13 +11,24 @@ class UserControllers {
   }
 
   async store(request, response) {
-    const {
 
+    const {
       name, nick_name, email, password,
     } = request.body;
 
-    if (!name || !nick_name || !email || !password) {
-      return response.status(400).json({ error: 'Fill in all fields' });
+
+    const schema = Yup.object().shape({
+
+      name: Yup.string().required(),
+      nick_name: Yup.string().required(),
+      email: Yup.string().required(),
+      password: Yup.string().min(7).required(),
+
+    });
+
+
+    if (!(await schema.isValid(request.body))) {
+      return response.status(401).json({ error: 'Validations is Fails' });
     }
 
     const existsEmail = await User.findOne({ where: { email } });

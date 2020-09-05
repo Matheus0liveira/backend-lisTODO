@@ -1,4 +1,5 @@
 import jwt from 'jsonwebtoken';
+import * as Yup from 'yup';
 import User from '../models/User';
 import configToken from '../../config/auth';
 
@@ -6,8 +7,15 @@ class SesisonController {
   async store(request, response) {
     const { nick_name, password } = request.body;
 
-    if (!nick_name || !password) {
-      return response.status(401).json({ error: 'Fill in all fields' });
+
+    const schema = Yup.object().shape({
+
+      nick_name: Yup.string().required().required(),
+      password: Yup.string().min(7).required(),
+    });
+
+    if (!(await schema.isValid(request.body))) {
+      return response.status(401).json({ error: 'Validations is Fails' });
     }
 
     const user = await User.findOne({ where: { nick_name } });
