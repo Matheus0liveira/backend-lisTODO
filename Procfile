@@ -1,1 +1,1 @@
-web: node dist/index.js
+web: yarn migration && node dist/index.js
