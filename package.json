@@ -4,8 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "start": "nodemon src/index",
-    "sucrase": "sucrase ./src -d /build --transforms javascript,imports"
+    "start": "nodemon src/index"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
