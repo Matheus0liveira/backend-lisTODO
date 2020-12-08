@@ -7,7 +7,9 @@ import './database';
 const PORT = process.env.PORT || 3333;
 
 const app = express();
-app.use(cors());
+app.use(cors({
+  origin: 'https://5fcfe8ab4b5bd81f56da0511--listtodoo.netlify.app/',
+}));
 app.use(express.json());
 
 app.use(routes);
