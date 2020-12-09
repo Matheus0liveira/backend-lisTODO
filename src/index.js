@@ -8,7 +8,7 @@ const PORT = process.env.PORT || 3333;
 
 const app = express();
 app.use(cors({
-  origin: 'https://listtodoo.netlify.app/*',
+  origin: 'https://listtodoo.netlify.app',
 
 }));
 app.use(express.json());
